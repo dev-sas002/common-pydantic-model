@@ -4,8 +4,8 @@ version = "0.1.0"
 description = "Created version mamangement for the drone-comms-models"
 authors = ["Ahsan Ellahi <ahsan170524@gmail.com>"]
 readme = "README.md"
-package-mode = false
-packages = [{ include = "drones_comms_model", from = "src/*" }]
+package-mode = true
+packages = [{ include = "drones_comms_model", from = "src" }]
 
 # This section holds the project's dependencies
 [tool.poetry.dependencies]
