@@ -13,8 +13,7 @@ from .common_types import (
 
 model_config = {
     **MODEL_CONFIG_WITH_DATETIME_ENCODER,  # Use shared constant
-    "populate_by_name": True,
-    "allow_population_by_field_name": True,
+    "validate_by_name": True,
 }
 
 
