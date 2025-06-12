@@ -1,7 +1,6 @@
 from .common_types import (
     CommandType,
     GimbalControlMode,
-    ErrorCode,
     SpecificErrorCode,
     CommandAckStatus,
     MODEL_CONFIG_WITH_DATETIME_ENCODER,
