@@ -35,7 +35,7 @@ class BaseD2CMessage(BaseModel):
     model_config = {
         **MODEL_CONFIG_WITH_DATETIME_ENCODER,
         "populate_by_name": True,
-        "allow_population_by_field_name": True,
+        "validate_by_name": True,
     }
 
 
