@@ -10,7 +10,6 @@ from .common_types import (
     MODEL_CONFIG_WITH_DATETIME_ENCODER,
 )
 
-
 class BaseC2DCommand(BaseModel):
     message_id: UUID = Field(
         default_factory=uuid4,
@@ -30,10 +29,9 @@ class BaseC2DCommand(BaseModel):
     )
 
     model_config = {
-        **MODEL_CONFIG_WITH_DATETIME_ENCODER,
+        **MODEL_CONFIG_WITH_DATETIME_ENCODER, 
         "validate_by_name": True,
     }
-
 
 class GimbalControlPayload(BaseModel):
     mode: GimbalControlMode
@@ -67,7 +65,6 @@ class GimbalControlCommand(BaseC2DCommand):
         CommandType.GIMBAL_CONTROL.value, alias="type"
     )
     payload: GimbalControlPayload
-
 
 AllCloudToDroneV1Commands = Annotated[
     PyUnion[GimbalControlCommand,],

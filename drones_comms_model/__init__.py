@@ -25,7 +25,6 @@ from .d2c_acknowledgements import (
 __all__ = [
     "CommandType",
     "GimbalControlMode",
-    "ErrorCode",
     "SpecificErrorCode",
     "CommandAckStatus",
     "MODEL_CONFIG_WITH_DATETIME_ENCODER",
