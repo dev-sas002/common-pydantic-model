@@ -11,26 +11,16 @@ from .common_types import (
 )
 
 class BaseC2DCommand(BaseModel):
-    message_id: UUID = Field(
-        default_factory=uuid4,
-        alias="command_id",
-        description="Unique ID for this command. Aliased to command_id for JSON.",
-    )
-    drone_id: str = Field(..., description="Target drone identifier")
     timestamp_utc: datetime = Field(
         default_factory=lambda: datetime.now(timezone.utc),
         alias="timestamp",
         description="Timestamp of the command in UTC. Aliased to timestamp for JSON.",
     )
-    version: Literal["1.0"] = "1.0"
-
-    command_type_c2d: str = Field(
-        ..., alias="type", description="Discriminator: Type of the command."
-    )
 
     model_config = {
         **MODEL_CONFIG_WITH_DATETIME_ENCODER, 
-        "validate_by_name": True,
+        "populate_by_name": True,
+        "allow_population_by_field_name": True,
     }
 
 class GimbalControlPayload(BaseModel):
@@ -61,9 +51,7 @@ class GimbalControlPayload(BaseModel):
 
 
 class GimbalControlCommand(BaseC2DCommand):
-    command_type_c2d: Literal[CommandType.GIMBAL_CONTROL] = Field(
-        CommandType.GIMBAL_CONTROL.value, alias="type"
-    )
+    
     payload: GimbalControlPayload
 
 AllCloudToDroneV1Commands = Annotated[

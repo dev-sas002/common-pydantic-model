@@ -11,7 +11,7 @@ MODEL_CONFIG_WITH_DATETIME_ENCODER = {
 }
 
 class CommandType(str, Enum):
-    GIMBAL_CONTROL = "gimbal_control"
+    GIMBAL_CONTROL = "gimbal-controller"
 
 
 class GimbalControlMode(str, Enum):
